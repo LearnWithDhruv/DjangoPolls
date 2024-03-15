@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poll Results</title>
+</head>
+<body>
+    <h1>Poll Result</h1>
+    <p>{{ poll.question }}</p>
+    <ul>
+        {% for choice in poll.choice_set.all %}
+            <li>{{ choice.choice_text }} - {{ choice.votes }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'polls:index' %}">Back to Poll List</a>
+</body>
+</html>
